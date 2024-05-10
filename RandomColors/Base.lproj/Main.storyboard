@@ -20,11 +20,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ColorCell" id="ZHi-rr-dJp">
-                                        <rect key="frame" x="0.0" y="50" width="430" height="55.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ColorCell" rowHeight="60" id="ZHi-rr-dJp">
+                                        <rect key="frame" x="0.0" y="50" width="430" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZHi-rr-dJp" id="fTN-AP-b8T">
-                                            <rect key="frame" x="0.0" y="0.0" width="430" height="55.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="430" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -46,12 +46,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Colors" id="hNb-Hl-NEw"/>
                     <connections>
+                        <outlet property="tableView" destination="vRk-AP-aJD" id="e1V-O1-4Ra"/>
                         <segue destination="O9J-vO-MEY" kind="show" identifier="ToColorsDetailViewController" id="Jzx-zY-vKm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OfA-sA-xq8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="686" y="-194"/>
+            <point key="canvasLocation" x="685.11627906976742" y="-194.42060085836911"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nz6-lc-mP8">
@@ -78,10 +79,24 @@
                     <view key="view" contentMode="scaleToFill" id="TMz-Jl-12f">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgJ-lK-h1i">
+                                <rect key="frame" x="139" y="434" width="154" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Copy Color Code"/>
+                                <connections>
+                                    <action selector="copyColorButtonTapped:" destination="O9J-vO-MEY" eventType="touchUpInside" id="PmL-Rl-YIh"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="QtH-uO-Atl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="1ix-lc-ADI"/>
+                    <connections>
+                        <outlet property="copyColorButton" destination="mgJ-lK-h1i" id="Rjx-JK-wqj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8G-0j-Elw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

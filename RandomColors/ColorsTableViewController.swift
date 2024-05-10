@@ -10,10 +10,18 @@ import UIKit
 class ColorsTableViewController: UIViewController {
     
     var colors : [UIColor] = []
-
+    let refreshControl = UIRefreshControl()
+    @IBOutlet var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addRandomColors()
+        
+        // Add the refresh control to the table view
+                tableView.refreshControl = refreshControl
+                
+                // Configure the refresh control action
+                refreshControl.addTarget(self, action: #selector(refreshColors), for: .valueChanged)
 
         // Do any additional setup after loading the view.
     }
@@ -28,6 +36,20 @@ class ColorsTableViewController: UIViewController {
         let destVC = segue.destination as! ColorsDetailViewController
         destVC.color = sender as? UIColor
     }
+    
+    @objc func refreshColors() {
+           // Clear the existing colors
+           colors.removeAll()
+           
+           // Generate new random colors
+           addRandomColors()
+           
+           // Reload the table view
+           tableView.reloadData()
+           
+           // End the refreshing state
+           refreshControl.endRefreshing()
+       }
 
 }
 
